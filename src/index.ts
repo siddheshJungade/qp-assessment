@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { AppDataSource } from './config/database';
+import { DatabaseConnection } from './config/database';
 import 'reflect-metadata';
 import adminRoutes from './routes/admin.routes';
 import userRoutes from './routes/user.routes';
@@ -20,7 +20,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/user', userRoutes);
 
 // Initialize database connection
-AppDataSource.initialize()
+DatabaseConnection.initialize()
   .then(() => {
     console.log('Database connection established');
     // Start server after database connection is established

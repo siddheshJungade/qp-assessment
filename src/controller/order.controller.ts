@@ -12,7 +12,7 @@ export class OrderController {
     async createOrder(req: Request, res: Response) {
         try {
             const orderData: IOrderRequest = req.body;
-            const customerId = Number(req.params.user_id); // This is a placeholder
+            const customerId = Number(req.params.user_id); 
             const result = await this.orderService.createOrder(orderData, customerId);
             return res.status(201).json(result);
         } catch (error) {

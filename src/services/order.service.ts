@@ -1,4 +1,4 @@
-import { AppDataSource } from '../config/database';
+import { DatabaseConnection } from '../config/database';
 import { Orders, OrderStatus } from '../entities/Orders';
 import { GroceryItem } from '../entities/GroceryItem';
 import { OrderItem } from '../entities/OrderItem';
@@ -6,11 +6,11 @@ import { IOrderRequest, IOrderResponse, IOrderItemResponse } from '../interfaces
 
 export class OrderService {
 
-    private orderItemRepository = AppDataSource.getRepository(OrderItem);
+    private orderItemRepository = DatabaseConnection.getRepository(OrderItem);
 
     async createOrder(orderData: IOrderRequest, customerId: number): Promise<IOrderResponse> {
         // Start a transaction
-        const queryRunner = AppDataSource.createQueryRunner();
+        const queryRunner = DatabaseConnection.createQueryRunner();
         await queryRunner.connect();
         await queryRunner.startTransaction();
 

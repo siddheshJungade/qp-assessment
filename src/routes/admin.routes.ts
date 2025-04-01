@@ -10,7 +10,7 @@ router.get(
     groceryController.getAllGroceryItems.bind(groceryController)
   );
 
-// Grocery Items Routes
+
 router.post(
   '/grocery-items',
   GroceryValidator.validateCreateItem,
@@ -18,7 +18,7 @@ router.post(
 );
 
 
-// Grocery Items Routes
+
 router.delete(
     '/grocery-items/:id',
     GroceryValidator.validateId,

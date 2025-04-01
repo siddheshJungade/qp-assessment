@@ -4,7 +4,7 @@ import { Orders } from '../entities/Orders';
 import { OrderItem } from '../entities/OrderItem';
 import 'reflect-metadata';
 
-export const AppDataSource = new DataSource({
+export const DatabaseConnection = new DataSource({
   type: 'sqlite',
   database: 'src/database/local.sqlite',
   entities: [GroceryItem, Orders, OrderItem],
