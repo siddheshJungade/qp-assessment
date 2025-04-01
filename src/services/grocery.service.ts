@@ -3,7 +3,7 @@ import { GroceryItem } from '../entities/GroceryItem';
 import { IGroceryItem, IGroceryItemResponse } from '../interfaces/grocery.interface';
 
 
-export class AdminService {
+export class GroceryService {
   private groceryItemRepository = AppDataSource.getRepository(GroceryItem);
   async getAllGroceryItems(): Promise<IGroceryItemResponse> {
     try {

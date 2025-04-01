@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
-import { AdminService } from '../services/admin.service';
+import { GroceryService } from '../services/grocery.service';
 import { IGroceryItem, IGroceryItemResponse } from '../interfaces/grocery.interface';
 
-export class AdminController {
-    private adminService: AdminService;
+export class GroceryController {
+    private adminService: GroceryService;
 
     constructor() {
-      this.adminService = new AdminService();
+      this.adminService = new GroceryService();
     }
 
     async createGroceryItem(req: Request, res: Response) {

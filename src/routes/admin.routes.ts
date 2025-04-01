@@ -1,20 +1,20 @@
 import { Router } from 'express';
-import { AdminController } from '../controller/admin.controller';
+import { GroceryController } from '../controller/grocery.controller';
 import { GroceryValidator } from '../validators/grocery.validator';
 
 const router = Router();
-const adminController = new AdminController();
+const groceryController = new GroceryController();
 
 router.get(
     '/grocery-items',
-    adminController.getAllGroceryItems.bind(adminController)
+    groceryController.getAllGroceryItems.bind(groceryController)
   );
 
 // Grocery Items Routes
 router.post(
   '/grocery-items',
   GroceryValidator.validateCreateItem,
-  adminController.createGroceryItem.bind(adminController)
+  groceryController.createGroceryItem.bind(groceryController)
 );
 
 
@@ -22,14 +22,14 @@ router.post(
 router.delete(
     '/grocery-items/:id',
     GroceryValidator.validateId,
-    adminController.deleteGroceryItem.bind(adminController)
+    groceryController.deleteGroceryItem.bind(groceryController)
   );
 
 router.patch(
     '/grocery-items/:id',
     GroceryValidator.validateId,
     GroceryValidator.validateUpdateItem,
-    adminController.updateGroceryItem.bind(adminController)
+    groceryController.updateGroceryItem.bind(groceryController)
   );
 
 
@@ -37,7 +37,7 @@ router.put(
     '/grocery-items/:id/inventory',
     GroceryValidator.validateId,
     GroceryValidator.validateUpdateInventory,
-    adminController.updateGroceryItemInventory.bind(adminController)
+    groceryController.updateGroceryItemInventory.bind(groceryController)
   );
 
 export default router;

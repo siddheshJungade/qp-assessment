@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, Generated } from 'typeorm';
+import { OrderItem } from './OrderItem';
 
 export enum OrderStatus {
   PENDING = 'pending',
@@ -14,9 +15,6 @@ export class Orders {
     id!: number;
 
     @Column()
-    orderNumber!: number;
-
-    @Column()
     orderDate!: Date;
 
     @Column()
@@ -26,11 +24,10 @@ export class Orders {
     totalAmount!: number;
 
     @Column({
-        type: 'enum',
-        enum: OrderStatus,
+        type: 'text',
         default: OrderStatus.PENDING
     })
-    status!: OrderStatus;
+    status!: string;
 
     @CreateDateColumn()
     createdAt!: Date;
