@@ -2,7 +2,6 @@ import { DataSource } from 'typeorm';
 import { GroceryItem } from '../entities/GroceryItem';
 import { Orders } from '../entities/Orders';
 import { OrderItem } from '../entities/OrderItem';
-import 'reflect-metadata';
 
 export const DatabaseConnection = new DataSource({
   type: 'sqlite',

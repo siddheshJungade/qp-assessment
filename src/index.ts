@@ -1,6 +1,5 @@
 import express, { Request, Response } from 'express';
 import { DatabaseConnection } from './config/database';
-import 'reflect-metadata';
 import adminRoutes from './routes/admin.routes';
 import userRoutes from './routes/user.routes';
 
